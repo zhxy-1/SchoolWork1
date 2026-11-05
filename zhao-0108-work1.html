@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>贝斯社 2026 春季招新 · 低频是乐队的心跳</title>
+<meta name="description" content="贝斯社 2026 年春季招新页面：社团简介、活动安排、风采展示、社员故事与在线报名。">
+<meta name="theme-color" content="#0B100F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B100F'/%3E%3Cpath d='M0 16 Q4 9 8 16 T16 16 T24 16 T32 16' stroke='%23D8A15F' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<style>
+/* ===== 设计变量：深色排练室 + 铜管色 + 米白字 ===== */
+:root{
+  --ink:#0B100F;
+  --ink-2:#121A18;
+  --bone:#EFE8DA;
+  --bone-2:rgba(239,232,218,.68);
+  --bone-3:rgba(239,232,218,.46);
+  --brass:#D8A15F;
+  --brass-line:rgba(216,161,95,.34);
+  --rule:rgba(239,232,218,.14);
+  --wrap:1160px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  margin:0;background:var(--ink);color:var(--bone);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+  font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+
+/* ===== 顶栏：左上角音乐开关 + 五项锚点导航 ===== */
+.site-head{position:sticky;top:0;z-index:40;background:var(--ink);border-bottom:1px solid var(--rule)}
+.head-inner{
+  max-width:var(--wrap);margin:0 auto;padding:0 clamp(14px,4vw,40px);
+  min-height:64px;display:flex;align-items:center;gap:clamp(12px,2vw,22px);flex-wrap:wrap;
+}
+.btn-bgm{
+  display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 14px 0 11px;
+  border:1px solid var(--brass-line);background:rgba(216,161,95,.06);color:var(--bone);
+  font:inherit;font-size:13.5px;letter-spacing:.02em;border-radius:2px;cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.btn-bgm:hover{border-color:var(--brass);background:rgba(216,161,95,.12)}
+.btn-bgm:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.btn-bgm[aria-pressed="true"]{border-color:var(--brass);background:rgba(216,161,95,.16)}
+.eq{display:inline-flex;align-items:flex-end;gap:2px;height:14px}
+.eq i{display:block;width:3px;height:4px;background:var(--brass)}
+.eq i:nth-child(2){height:9px}
+.eq i:nth-child(3){height:6px}
+.btn-bgm[aria-pressed="true"] .eq i{animation:eqPulse .9s ease-in-out infinite alternate}
+.btn-bgm[aria-pressed="true"] .eq i:nth-child(2){animation-delay:.15s}
+.btn-bgm[aria-pressed="true"] .eq i:nth-child(3){animation-delay:.3s}
+@keyframes eqPulse{from{height:3px}to{height:14px}}
+
+.wordmark{display:inline-flex;align-items:baseline;gap:9px;text-decoration:none;font-size:17px;font-weight:700;letter-spacing:.02em}
+.wordmark em{font-style:normal;font-size:10.5px;letter-spacing:.16em;color:var(--bone-3)}
+.nav{margin-left:auto;display:flex;gap:clamp(10px,2.2vw,26px);font-size:14.5px}
+.nav a{
+  text-decoration:none;color:var(--bone-2);padding:6px 0;white-space:nowrap;
+  border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
+}
+.nav a:hover{color:var(--bone);border-bottom-color:var(--brass)}
+
+/* ===== 首屏 ===== */
+.hero{position:relative;isolation:isolate;min-height:clamp(520px,86vh,840px);display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero-media{position:absolute;inset:0;z-index:-1}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:58% 40%}
+.hero-scrim{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(11,16,15,.97) 0%,rgba(11,16,15,.9) 26%,rgba(11,16,15,.34) 62%,rgba(11,16,15,.62) 100%),
+    linear-gradient(0deg,rgba(11,16,15,.98) 0%,rgba(11,16,15,.12) 44%,rgba(11,16,15,0) 72%);
+}
+.hero-inner{position:relative;z-index:2;width:100%;padding-top:clamp(40px,8vh,110px);padding-bottom:calc(52px + clamp(34px,7vh,74px))}
+.stamp{
+  display:inline-block;margin:0;padding:5px 12px;border:1px solid var(--brass-line);
+  color:var(--brass);font-size:12.5px;letter-spacing:.1em;background:rgba(11,16,15,.5);
+  transform:rotate(-2deg);
+}
+.hero h1{margin:22px 0 0;font-size:clamp(2.5rem,7.2vw,5.5rem);line-height:1.06;letter-spacing:-.025em;font-weight:800}
+.hero-lede{max-width:31em;margin:24px 0 0;color:var(--bone-2);font-size:clamp(15.5px,1.5vw,18px);line-height:1.85}
+.hero-meta{margin:14px 0 0;max-width:34em;color:var(--bone-3);font-size:13.5px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(24px,4vh,38px)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 26px;
+  font-family:inherit;font-size:15px;text-decoration:none;border-radius:2px;
+  border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;
+}
+.btn-solid{background:var(--brass);border-color:var(--brass);color:#16100A;font-weight:600}
+.btn-solid:hover{background:#E9B478}
+.btn-line{border-color:rgba(239,232,218,.32);color:var(--bone);background:transparent}
+.btn-line:hover{border-color:var(--brass);color:var(--brass)}
+.btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+/* 首屏底部的低频波形：标志性元素，缓慢向左流动 */
+.wave-strip{position:absolute;left:0;right:0;bottom:0;height:52px;overflow:hidden;z-index:3;border-top:1px solid var(--brass-line);background:rgba(11,16,15,.55)}
+.wave-strip svg{position:absolute;top:0;left:0;width:2400px;height:52px;animation:waveSlide 46s linear infinite}
+@keyframes waveSlide{from{transform:translateX(0)}to{transform:translateX(-1200px)}}
+.wave-label{
+  position:absolute;right:clamp(16px,4vw,40px);top:50%;transform:translateY(-50%);
+  padding:3px 8px;border:1px solid var(--rule);background:rgba(11,16,15,.88);
+  font-size:11px;letter-spacing:.12em;color:var(--bone-3);
+}
+
+/* ===== 章节通用 ===== */
+.section{padding:clamp(58px,7.5vw,104px) 0;border-top:1px solid var(--rule)}
+.sec-head{max-width:44em}
+.sec-head h2{
+  display:flex;align-items:center;gap:14px;margin:0;
+  font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.25;letter-spacing:-.02em;font-weight:700;
+}
+.sec-head h2::before{content:"";flex:0 0 auto;width:26px;height:2px;background:var(--brass)}
+.sec-lede{margin:16px 0 0;color:var(--bone-3);font-size:15px;line-height:1.8}
+.sec-foot{display:flex;justify-content:flex-end;margin-top:clamp(30px,4.5vw,48px)}
+.to-top{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 0;border:0;border-bottom:1px solid var(--brass-line);
+  background:none;color:var(--brass);font:inherit;font-size:13.5px;letter-spacing:.04em;cursor:pointer;
+}
+.to-top:hover{border-bottom-color:var(--brass)}
+.to-top:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.to-top svg{width:13px;height:13px;flex:0 0 auto}
+
+/* ===== 社团简介 ===== */
+.intro-grid{display:grid;grid-template-columns:minmax(230px,296px) minmax(0,1fr);gap:clamp(28px,6vw,84px);margin-top:clamp(32px,5vw,56px)}
+.spec{border-top:1px solid var(--brass-line);padding-top:18px;align-self:start}
+.spec h3{margin:0 0 6px;font-size:12.5px;letter-spacing:.14em;color:var(--brass);font-weight:600}
+.spec dl{margin:0}
+.spec dt{margin-top:14px;font-size:12.5px;letter-spacing:.04em;color:var(--bone-3)}
+.spec dd{margin:3px 0 0;font-size:14.5px;line-height:1.7;color:var(--bone-2)}
+.prose{max-width:40em;font-size:16.5px;line-height:2.02;color:rgba(239,232,218,.86)}
+.prose p{margin:0 0 1.3em}
+.prose .lead{font-size:18.5px;line-height:1.95;color:var(--bone)}
+
+/* ===== 活动安排表 ===== */
+.table-wrap{margin-top:clamp(28px,4.5vw,46px);overflow-x:auto;border:1px solid var(--rule);background:rgba(239,232,218,.025)}
+.schedule{width:100%;min-width:660px;border-collapse:collapse;table-layout:fixed;font-size:15px}
+.schedule th,.schedule td{padding:14px 16px;text-align:left;vertical-align:middle;line-height:1.65;border-bottom:1px solid var(--rule)}
+.schedule .t-title{
+  padding:20px 16px;text-align:center;font-size:clamp(1.02rem,1.9vw,1.32rem);font-weight:700;letter-spacing:.05em;
+  background:rgba(216,161,95,.08);border-bottom:1px solid var(--brass-line);
+}
+.schedule th[scope="col"]{text-align:center;font-size:12.5px;font-weight:500;letter-spacing:.1em;color:var(--bone-3)}
+.schedule .cell-date{color:var(--bone-2);font-variant-numeric:tabular-nums}
+.schedule .cell-name{font-weight:600}
+.schedule .room{vertical-align:middle}
+.room-note{display:block;margin-top:4px;font-size:11.5px;letter-spacing:.04em;color:var(--brass)}
+.schedule tbody tr:last-child td{border-bottom:0}
+
+.notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 44px;margin-top:26px;font-size:14.5px;color:var(--bone-2)}
+.notes p{margin:0}
+.note-k{display:inline-block;margin-right:8px;font-size:12px;letter-spacing:.1em;color:var(--brass)}
+
+/* ===== 风采展示 ===== */
+.shot{margin:0}
+.shot-link{position:relative;display:block;overflow:hidden;border:1px solid var(--rule);text-decoration:none}
+.shot-link img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.shot-link:hover img{transform:scale(1.03)}
+.shot-link:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.shot-badge{
+  position:absolute;left:18px;bottom:18px;padding:7px 12px;font-size:12.5px;letter-spacing:.06em;
+  color:var(--brass);background:rgba(11,16,15,.85);border:1px solid var(--brass-line);
+}
+.cap{margin:14px 0 0;max-width:46em;font-size:13.5px;line-height:1.75;color:var(--bone-3)}
+.video-block{margin-top:clamp(34px,5vw,56px);max-width:820px}
+.clip{display:block;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--rule)}
+
+/* ===== 社员故事 ===== */
+.story{
+  display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:clamp(16px,4vw,48px);
+  margin-top:clamp(30px,4.5vw,46px);padding-top:clamp(22px,3vw,32px);border-top:1px solid var(--rule);
+}
+.story-meta{margin:0;font-size:13px;line-height:1.8;letter-spacing:.04em;color:var(--brass)}
+.story h3{margin:0 0 12px;font-size:clamp(1.12rem,2vw,1.38rem);line-height:1.5;letter-spacing:-.01em;font-weight:700}
+.story p{margin:0 0 1em;font-size:16.5px;line-height:2;color:rgba(239,232,218,.84)}
+
+/* ===== 在线报名表 ===== */
+.form-wrap{margin-top:clamp(28px,4.5vw,44px);max-width:860px;border-top:1px solid var(--brass-line)}
+.bform{width:100%;border-collapse:collapse;table-layout:fixed}
+.bform th,.bform td{padding:18px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.bform th{width:27%;padding-right:16px;text-align:left;font-size:14.5px;font-weight:500;line-height:1.9;color:var(--bone-2);letter-spacing:.02em}
+.bform td{padding-top:14px}
+.input{width:100%;padding:8px 2px;background:transparent;border:0;border-bottom:1px solid rgba(239,232,218,.26);
+  border-radius:0;color:var(--bone);font:inherit;font-size:16px;transition:border-color .2s}
+.input::placeholder{color:rgba(239,232,218,.34)}
+.input:focus{outline:none;border-bottom-color:var(--brass)}
+.input:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+textarea.input{min-height:132px;padding:12px;border:1px solid rgba(239,232,218,.26);line-height:1.8;resize:vertical}
+select.input{color:var(--bone);appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--bone-3) 50%),linear-gradient(135deg,var(--bone-3) 50%,transparent 50%);
+  background-position:calc(100% - 14px) 55%,calc(100% - 8px) 55%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:28px}
+select.input option{background:var(--ink-2);color:var(--bone)}
+.opts{display:flex;flex-wrap:wrap;gap:10px 26px}
+.opt{display:inline-flex;align-items:center;gap:8px;min-height:36px;font-size:15.5px;color:var(--bone);cursor:pointer}
+.opt input{width:17px;height:17px;margin:0;accent-color:var(--brass)}
+.birth,.contact{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.birth .input{width:76px;text-align:center}
+.birth span{font-size:13px;color:var(--bone-3)}
+.contact .input{flex:1 1 200px}
+.actions{border-bottom:0 !important;padding:26px 0 6px !important;display:flex;flex-wrap:wrap;gap:14px}
+.form-msg{margin:14px 0 0;min-height:1.5em;font-size:14px;line-height:1.7;color:var(--brass)}
+.form-note{margin:18px 0 0;font-size:13px;line-height:1.8;color:var(--bone-3)}
+
+/* ===== 页脚 ===== */
+.site-foot{border-top:1px solid var(--rule);padding:clamp(34px,5vw,52px) 0 clamp(42px,6vw,66px);font-size:13px;line-height:1.8;color:var(--bone-3)}
+.foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-inner p{margin:0 0 4px}
+.foot-mark{font-size:16px;font-weight:700;color:var(--bone)}
+.foot-mark em{font-style:normal;margin-left:8px;font-size:10.5px;letter-spacing:.16em;color:var(--bone-3)}
+
+/* ===== 响应式 ===== */
+@media (max-width:980px){
+  .intro-grid{grid-template-columns:1fr}
+  .spec{position:static}
+  .story{grid-template-columns:1fr;gap:10px}
+}
+@media (max-width:780px){
+  .head-inner{padding-top:10px;padding-bottom:8px;gap:10px}
+  .nav{width:100%;margin-left:0;gap:20px;overflow-x:auto;padding-bottom:4px}
+  .nav::-webkit-scrollbar{display:none}
+  .hero-inner{padding-top:clamp(28px,6vh,64px)}
+  .hero-scrim{background:
+    linear-gradient(180deg,rgba(11,16,15,.55) 0%,rgba(11,16,15,.86) 52%,rgba(11,16,15,.98) 100%);}
+  .hero-media img{object-position:60% 36%}
+  .notes{grid-template-columns:1fr}
+  .wave-label{display:none}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .bform tr{display:block;padding:12px 0;border-bottom:1px solid var(--rule)}
+  .bform th,.bform td{display:block;width:100%;padding:0;border-bottom:0}
+  .bform th{padding-bottom:6px}
+  .actions{padding:20px 0 4px !important}
+  .birth .input{width:64px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wave-strip svg{animation:none}
+  .btn-bgm[aria-pressed="true"] .eq i{animation:none}
+  .shot-link img{transition:none}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ===== 顶栏 ===== -->
+<header class="site-head">
+  <div class="head-inner">
+    <button class="btn-bgm" id="bgmBtn" type="button" aria-pressed="false" aria-label="播放背景音乐">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span id="bgmText">播放背景音乐</span>
+    </button>
+    <a class="wordmark" href="#top">贝斯社<em>BASS CLUB</em></a>
+    <nav class="nav" aria-label="页面导航">
+      <a href="#intro">社团简介</a>
+      <a href="#activity">活动安排</a>
+      <a href="#gallery">风采展示</a>
+      <a href="#story">社员故事</a>
+      <a href="#signup">在线报名</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== 首屏 ===== -->
+<section class="hero">
+  <div class="hero-media">
+    <img src="assets/bass-photo.jpg" alt="排练室里，一名男生弹着电贝斯，鼓手坐在架子鼓后，一名女生持麦克风轻唱">
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <p class="stamp">2026 春季招新 · 3.2 — 3.20</p>
+      <h1>低频，<br>是乐队的心跳</h1>
+      <p class="hero-lede">贝斯社是校内唯一以电贝斯为核心的学生社团。我们不挑你弹得多快，只在意每一拍有没有落在该落的地方。</p>
+      <p class="hero-meta">2019 年成立，每周三 19:00 在艺术楼排练厅 3 排练，现有社员 40 人。零基础可入。</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#signup">填写报名表</a>
+        <a class="btn btn-line" href="#activity">查看活动安排</a>
+      </div>
+    </div>
+  </div>
+  <div class="wave-strip" aria-hidden="true">
+    <svg viewBox="0 0 2400 52" preserveAspectRatio="none" focusable="false">
+      <g fill="none" stroke="#D8A15F" stroke-width="1.4" opacity=".55">
+        <path d="M0,26 Q40,8 80,26 T160,26 T240,26 T320,26 T400,26 T480,26 T560,26 T640,26 T720,26 T800,26 T880,26 T960,26 T1040,26 T1120,26 T1200,26 T1280,26 T1360,26 T1440,26 T1520,26 T1600,26 T1680,26 T1760,26 T1840,26 T1920,26 T2000,26 T2080,26 T2160,26 T2240,26 T2320,26 T2400,26"/>
+        <path d="M0,26 Q40,8 80,26 T160,26 T240,26 T320,26 T400,26 T480,26 T560,26 T640,26 T720,26 T800,26 T880,26 T960,26 T1040,26 T1120,26 T1200,26 T1280,26 T1360,26 T1440,26 T1520,26 T1600,26 T1680,26 T1760,26 T1840,26 T1920,26 T2000,26 T2080,26 T2160,26 T2240,26 T2320,26 T2400,26" transform="translate(1200,0)"/>
+      </g>
+    </svg>
+    <span class="wave-label">30 — 250 Hz 贝斯频段</span>
+  </div>
+</section>
+
+<!-- ===== 视图：社团简介 ===== -->
+<section class="section" id="intro">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>社团简介</h2>
+      <p class="sec-lede">一个把声音放在最低处的社团，和它每周在做的事。</p>
+    </div>
+
+    <div class="intro-grid">
+      <aside class="spec">
+        <h3>社团档案</h3>
+        <dl>
+          <dt>成立时间</dt><dd>2019 年 9 月</dd>
+          <dt>社团性质</dt><dd>校级学生社团，校音乐联盟成员</dd>
+          <dt>例行排练</dt><dd>每周三 19:00—21:30，艺术楼排练厅 3</dd>
+          <dt>社用设备</dt><dd>四弦／五弦贝斯共 12 把，音箱 4 台，调音台 1 台</dd>
+          <dt>在册社员</dt><dd>40 人（2025—2026 学年）</dd>
+          <dt>招新对象</dt><dd>全校在读本科生、研究生，零基础可入</dd>
+          <dt>联系方式</dt><dd>bassclub@campus.example</dd>
+        </dl>
+      </aside>
+
+      <div class="prose">
+        <p class="lead">贝斯社成立于 2019 年，最初只是五个人在艺术楼借来的一间空教室里合练。七年过去，社团仍然坚持同一件事：把低频放在乐队最中间的位置。</p>
+        <p>很多人第一次听乐队，记住的是主唱的声音和吉他华丽的段落，散场之后却说不清那首歌为什么「很稳」。让一首歌稳下来的，是贝斯。它负责告诉整支乐队每一拍落在哪里，也负责让鼓和吉他在同一口气里说话。我们做的，就是把这件常常被忽略、但缺了就立刻听得出来的乐器，交到愿意认真练它的手上。</p>
+        <p>社团的常规活动是每周三晚上 19:00 到 21:30 的排练，地点固定在艺术楼排练厅 3。排练分三段：前四十分钟是基本功，右手拨弦、左手按弦，用节拍器慢速过音阶；中间一小时按声部分组，贝斯手和鼓手单独对拍子，其他人各自练自己的段落；最后半小时全体合排，把这一周练的东西放进一首完整的歌里过一遍。这套流程从 2021 年沿用到现在，中间只改过一次——把基本功从二十分钟加到了四十分钟，因为大部分新人的问题都出在同一个地方：音头不干净。</p>
+        <p>新成员不需要任何基础。社里备了 12 把琴，从四弦到五弦都有，第一学期可以登记借用；开学前两周有两次基础公开课，讲的是最朴素的东西：怎么握琴颈，怎么让音头干净地落在拍上，怎么在没有观众的地方也把音量控制住。我们很少讲乐理考级那一套，更多是让你在合排里听见自己那一条线是怎么托住整首歌的。</p>
+        <p>每学期我们会有两到三次公开露面：社团文化节的摊位、四月的校园草坪音乐节、五月的学期汇报演出。演出曲目不追求难度，更像一次公开的排练成果验收：新生在台上弹的第一个八小节，往往就是这一个学期全部的练习。除了演出，社团还做一些看不见的事：给校内其他乐队做临时替补乐手，帮毕业季的短片录一段现场音，在排练厅墙上贴满改到第七版的谱子。这些事情不进节目单，但它们是一个社团真正存在的理由。</p>
+        <p>社里的器材由器材组统一管理：每把琴都有编号，借用登记在排练厅门口的册子上，学期末统一检修、换弦。这套制度看着琐碎，但它是社团能连续七年把琴留在社里的原因——一把琴坏了，可能就是一个新人一整个学期没得练。排练厅的钥匙也在器材组手上，谁最后走，谁负责关灯锁门。</p>
+        <p>这次春季招新，我们想找的不只是会弹琴的人。贝斯手、鼓手、键盘、主唱当然欢迎，编曲、录音、摄影摄像、文案与活动策划也一样需要——一场演出背后有排期表、有器材清单、有一张海报，和一个负责把所有人叫齐的人。如果你是零基础，也没关系：社里超过一半的成员是进社之后才第一次摸到贝斯。我们只要求两件事：每周三晚上留出两个半小时；以及愿意在没人听的时候，把同一个八小节练二十遍。</p>
+        <p>招新时间从 3 月 2 日到 3 月 20 日。线上填写报名表后，我们会在三个工作日内联系你安排一次试排练——先来弹一次，再决定要不要留下。</p>
+      </div>
+    </div>
+
+    <div class="sec-foot">
+      <button class="to-top" type="button" data-top>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="#D8A15F" stroke-width="1.6"/></svg>
+        返回顶部
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：活动安排 ===== -->
+<section class="section" id="activity">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>活动安排</h2>
+      <p class="sec-lede">2026 年春季学期的公开活动与例行排练。表内 3 月 4 日、3 月 11 日两场活动在同一间教室举行。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="schedule">
+        <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">贝斯社 2026 年春季学期活动安排表</caption>
+        <colgroup>
+          <col style="width:24%"><col style="width:30%"><col style="width:27%"><col style="width:19%">
+        </colgroup>
+        <thead>
+          <tr><td class="t-title" colspan="4">贝斯社 2026 年春季学期活动安排表</td></tr>
+          <tr>
+            <th scope="col">时间</th>
+            <th scope="col">活动名称</th>
+            <th scope="col">地点</th>
+            <th scope="col">负责人</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cell-date">3 月 4 日（周三）19:00</td>
+            <td class="cell-name">新成员见面会</td>
+            <td class="room" rowspan="2">博学楼 B201<span class="room-note">两场共用同一教室</span></td>
+            <td>林舟</td>
+          </tr>
+          <tr>
+            <td class="cell-date">3 月 11 日（周三）19:00</td>
+            <td class="cell-name">贝斯基础教学公开课</td>
+            <td>江雪</td>
+          </tr>
+          <tr>
+            <td class="cell-date">每周三 19:00—21:30</td>
+            <td class="cell-name">社团例行排练</td>
+            <td>艺术楼 排练厅 3</td>
+            <td>各声部组长</td>
+          </tr>
+          <tr>
+            <td class="cell-date">4 月 18 日（周六）14:00</td>
+            <td class="cell-name">校园草坪音乐节 · 社团联合演出</td>
+            <td>中心广场</td>
+            <td>演出组</td>
+          </tr>
+          <tr>
+            <td class="cell-date">5 月 16 日（周六）19:30</td>
+            <td class="cell-name">春季学期汇报演出（含新生首秀）</td>
+            <td>大学生活动中心 剧场</td>
+            <td>全社</td>
+          </tr>
+          <tr>
+            <td class="cell-date">6 月 3 日（周三）19:00</td>
+            <td class="cell-name">暑期排练与乐器借用说明会</td>
+            <td>艺术楼 排练厅 3</td>
+            <td>器材组</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notes">
+      <p><span class="note-k">场地</span>排练厅在艺术楼三层最里侧，进门右手边第二间；3 月 4 日与 3 月 11 日两场活动都在博学楼 B201，注意不要走错楼。</p>
+      <p><span class="note-k">公开课</span>对全校开放，不带琴也可以来听；需要借用社琴的，请在社团群提前一天登记。</p>
+      <p><span class="note-k">请假</span>临时请假请至少提前一天在群里说明，连续三次无故缺席会释放借用琴的名额。</p>
+      <p><span class="note-k">费用</span>社费每学期 30 元，用于琴弦、耗材和演出器材的运输。</p>
+    </div>
+
+    <div class="sec-foot">
+      <button class="to-top" type="button" data-top>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="#D8A15F" stroke-width="1.6"/></svg>
+        返回顶部
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：风采展示 ===== -->
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>风采展示</h2>
+      <p class="sec-lede">排练厅里的日常。点击照片可以看这一场合排的活动介绍，下面的短片由同一张照片剪成。</p>
+    </div>
+
+    <figure class="shot" style="margin-top:clamp(28px,4.5vw,46px)">
+      <a class="shot-link" href="club_intro.html" title="查看春季第一次全员合排的活动介绍">
+        <img src="assets/bass-photo.jpg" alt="排练室里，一名男生弹着电贝斯，鼓手坐在架子鼓后，一名女生持麦克风轻唱">
+        <span class="shot-badge">点击查看活动介绍</span>
+      </a>
+      <figcaption class="cap">2026 年 3 月 11 日，艺术楼排练厅 3，春季第一次全员合排。左侧弹贝斯的是 2024 级的林舟，鼓手是 2023 级的陈默，主唱是 2025 级的苏禾。照片由社团影像组拍摄。</figcaption>
+    </figure>
+
+    <div class="video-block">
+      <video class="clip" controls preload="metadata" playsinline poster="assets/bass-photo.jpg">
+        <source src="assets/bass-video.mp4" type="video/mp4">
+        <embed src="assets/bass-video.mp4" type="video/mp4" width="960" height="540">
+        你的浏览器不支持视频播放，可以<a href="assets/bass-video.mp4">下载这段 5 秒短片</a>观看。
+      </video>
+      <p class="cap">5 秒短片：同一张照片在剪映里加了缓推镜头和淡入淡出，配乐取自社歌《低频》的前五秒。</p>
+    </div>
+
+    <div class="sec-foot">
+      <button class="to-top" type="button" data-top>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="#D8A15F" stroke-width="1.6"/></svg>
+        返回顶部
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：社员故事 ===== -->
+<section class="section" id="story">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>社员故事</h2>
+      <p class="sec-lede">三个人，三种进入社团的方式：从吉他手转到社长，从研究生到教学组，从零基础到第一次上台。</p>
+    </div>
+
+    <article class="story">
+      <p class="story-meta">林舟<br>2024 级 · 社长</p>
+      <div>
+        <h3>先给整支乐队一个拍子</h3>
+        <p>我大一进来的时候弹的是吉他。第一次合排，鼓手说我弹的 Solo 很好听，但整支乐队一直在等我给一个拍子。那天晚上我坐在排练厅地板上，听了一段只有贝斯的录音，才明白贝斯不是「少一个声部」，它是整首歌的地基。</p>
+        <p>后来我接手社团，做的第一件事是把排练表贴在排练厅门口：几点到、练什么、谁负责。有人觉得这太像上课，但没有这张表，一个四十人的社团会在半小时里散成一堆聊天的人。</p>
+        <p>现在每次合排结束，我都会留十分钟，让新来的人单独弹一遍今天练的段落。不是考核，是让他听见自己这一周到底长进了多少。这个习惯是上一任社长留下的，我打算继续传下去。</p>
+        <p>有次招新宣讲，有人举手问：贝斯是不是就是伴奏乐器。我说你可以试着把一首歌的贝斯轨静音，再听一遍，大部分人会在第三秒就发现哪里不对。社团最想教给新人的，其实就是这样一双「听得出缺了什么」的耳朵。</p>
+      </div>
+    </article>
+
+    <article class="story">
+      <p class="story-meta">江雪<br>研一 · 教学组</p>
+      <div>
+        <h3>四十分钟，只讲一个动作</h3>
+        <p>我本科不是音乐专业，学贝斯只是因为喜欢一支乐队的低音线。第一次公开课，我准备了四十页幻灯片，结果讲了四十分钟只讲了一个动作：右手食指和中指交替拨弦，让音头稳稳落在拍子上。</p>
+        <p>有个新生问，这么练有什么用。我让他把节拍器调到 60，弹一根空弦，弹到第四十下的时候他突然笑了——他说原来声音可以这么整齐。</p>
+        <p>贝斯最难的部分不是技巧，是耐心：你得接受自己练了两周，观众还是听不出区别，但乐队里的其他人已经感觉到了。现在教学组有四个人，我们把公开课拆成四节，每节只讲一件事。慢，但每个人都能跟上。</p>
+        <p>去年有个学生连着来了六周，第七周没来。我发消息问他，他说练了两周还是弹不齐，觉得有点浪费时间。我让他下周只带一个动作来：空弦，六十拍，四小节，别的都不管。他来了。现在他在台上弹副歌那条低音线，没人看得出他入门才半年。</p>
+      </div>
+    </article>
+
+    <article class="story">
+      <p class="story-meta">小北<br>2025 级 · 零基础入社</p>
+      <div>
+        <h3>第三周，是最难熬的那一周</h3>
+        <p>我进社的时候连琴都没摸过。报名表上有一栏问为什么想加入，我写的是：我想在一个乐队里有一个位置，哪怕是最不起眼的那个。</p>
+        <p>第一次排练我坐在角落看了一个半小时，第二次被拉去弹两个小节，第四次就上了台。台下没有人听出来那是我第一首完整的歌，但鼓手在结束时跟我碰了一下拳头。</p>
+        <p>零基础进来的人都会遇到同一个问题：前两周特别兴奋，第三周开始怀疑自己。社里管这个叫「第三周」。我的办法是每次排练只给自己定一个小目标，比如今天把副歌的四个音弹准，其他都不管。现在我已经能跟着完整的曲子弹下来了，速度不快，但没有掉拍。</p>
+        <p>上个月我数了一下自己练琴的时间，加起来不到四十个小时。社长说这已经不算少，很多人一个学期就停在「第三周」。我还想继续练，速度大概不会变快多少，但我开始能听出别人弹错的地方了——这件事比弹快更让我高兴。</p>
+      </div>
+    </article>
+
+    <div class="sec-foot">
+      <button class="to-top" type="button" data-top>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="#D8A15F" stroke-width="1.6"/></svg>
+        返回顶部
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：在线报名 ===== -->
+<section class="section" id="signup">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>在线报名</h2>
+      <p class="sec-lede">填完这张表，我们会在三个工作日内联系你，安排一次试排练。</p>
+    </div>
+
+    <div class="form-wrap">
+      <form id="signupForm" action="#" method="post">
+        <table class="bform">
+          <colgroup><col style="width:27%"><col style="width:73%"></colgroup>
+          <tbody>
+            <tr>
+              <th scope="row"><label for="f-name">姓名</label></th>
+              <td><input class="input" id="f-name" name="name" type="text" placeholder="请输入姓名" required></td>
+            </tr>
+            <tr>
+              <th scope="row">性别</th>
+              <td class="opts">
+                <label class="opt"><input type="radio" name="sex" value="男">男</label>
+                <label class="opt"><input type="radio" name="sex" value="女">女</label>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">出生日期</th>
+              <td>
+                <div class="birth">
+                  <input class="input" type="text" name="birth-year" inputmode="numeric" maxlength="4" placeholder="2005" aria-label="出生年份"><span>年</span>
+                  <input class="input" type="text" name="birth-month" inputmode="numeric" maxlength="2" placeholder="03" aria-label="出生月份"><span>月</span>
+                  <input class="input" type="text" name="birth-day" inputmode="numeric" maxlength="2" placeholder="12" aria-label="出生日"><span>日</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">手机 / 邮箱</th>
+              <td>
+                <div class="contact">
+                  <input class="input" type="text" name="phone" placeholder="手机号" aria-label="手机号" required>
+                  <input class="input" type="text" name="email" placeholder="常用邮箱" aria-label="常用邮箱">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">是否有贝斯基础</th>
+              <td class="opts">
+                <label class="opt"><input type="radio" name="bass-base" value="有">有，弹过一年以上</label>
+                <label class="opt"><input type="radio" name="bass-base" value="有一点">有一点，自己能弹几首</label>
+                <label class="opt"><input type="radio" name="bass-base" value="无">完全没有</label>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">兴趣方向</th>
+              <td class="opts">
+                <label class="opt"><input type="checkbox" name="interest" value="贝斯">贝斯</label>
+                <label class="opt"><input type="checkbox" name="interest" value="鼓">鼓</label>
+                <label class="opt"><input type="checkbox" name="interest" value="吉他">吉他</label>
+                <label class="opt"><input type="checkbox" name="interest" value="键盘">键盘</label>
+                <label class="opt"><input type="checkbox" name="interest" value="主唱">主唱</label>
+                <label class="opt"><input type="checkbox" name="interest" value="编曲录音">编曲 / 录音</label>
+                <label class="opt"><input type="checkbox" name="interest" value="摄影摄像">摄影摄像</label>
+                <label class="opt"><input type="checkbox" name="interest" value="文案策划">文案 / 活动策划</label>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="f-grade">年级</label></th>
+              <td>
+                <select class="input" id="f-grade" name="grade">
+                  <option value="">请选择年级</option>
+                  <option value="大一">大一</option>
+                  <option value="大二">大二</option>
+                  <option value="大三">大三</option>
+                  <option value="大四">大四</option>
+                  <option value="研究生">研究生</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="f-intro">自我介绍</label></th>
+              <td>
+                <textarea class="input" id="f-intro" name="intro" placeholder="请简单介绍自己、以及加入贝斯社的理由……"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">是否服从活动安排</th>
+              <td class="opts">
+                <label class="opt"><input type="radio" name="follow" value="服从">服从统一安排</label>
+                <label class="opt"><input type="radio" name="follow" value="协商">部分时间需要协商</label>
+              </td>
+            </tr>
+            <tr>
+              <td class="actions" colspan="2">
+                <button class="btn btn-solid" type="submit">提交报名</button>
+                <button class="btn btn-line" type="reset">重置表单</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="sec-foot">
+      <button class="to-top" type="button" data-top>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="#D8A15F" stroke-width="1.6"/></svg>
+        返回顶部
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <div>
+      <p class="foot-mark">贝斯社<em>BASS CLUB</em></p>
+      <p>艺术楼排练厅 3 · 每周三 19:00 排练</p>
+    </div>
+    <div>
+      <p>联系：bassclub@campus.example</p>
+    </div>
+  </div>
+</footer>
+
+<audio id="bgm" src="assets/bass-bgm.mp3" loop preload="metadata"></audio>
+
+<script>
+(function () {
+  /* 背景音乐开关：左上角按钮，点击播放／暂停 */
+  var audio = document.getElementById('bgm');
+  var btn = document.getElementById('bgmBtn');
+  var label = document.getElementById('bgmText');
+
+  function paint(playing) {
+    btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    btn.setAttribute('aria-label', playing ? '暂停背景音乐' : '播放背景音乐');
+    label.textContent = playing ? '暂停背景音乐' : '播放背景音乐';
+  }
+
+  btn.addEventListener('click', function () {
+    if (audio.paused) {
+      var p = audio.play();
+      if (p && typeof p.catch === 'function') {
+        p.then(function () { paint(true); }).catch(function () {
+          paint(false);
+          label.textContent = '浏览器阻止了播放，再点一次';
+        });
+      } else {
+        paint(true);
+      }
+    } else {
+      audio.pause();
+      paint(false);
+    }
+  });
+  audio.addEventListener('pause', function () { paint(false); });
+  audio.addEventListener('play', function () { paint(true); });
+
+  /* 五个分区的「返回顶部」 */
+  document.querySelectorAll('[data-top]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+
+  /* 报名表单：静态页面，拦截提交并给出反馈 */
+  var form = document.getElementById('signupForm');
+  var msg = document.getElementById('formMsg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.elements['name'].value.trim();
+    var phone = form.elements['phone'].value.trim();
+    if (!name || !phone) {
+      msg.textContent = '请至少填写姓名和手机号，方便我们联系你安排试排练。';
+      return;
+    }
+    msg.textContent = '已记录：' + name + '，我们会通过 ' + phone + ' 联系你。（演示页面，数据不会真的发送）';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
